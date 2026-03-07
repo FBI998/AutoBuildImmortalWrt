@@ -20,7 +20,7 @@ if [ ! -f "$SETTINGS_FILE" ]; then
     echo "PPPoE settings file not found. Skipping." >>$LOGFILE
 else
     # 读取pppoe信息($enable_pppoe、$pppoe_account、$pppoe_password)
-    . "$SETTINGS_FILE"
+    。 "$SETTINGS_FILE"
 fi
 
 # 1. 先获取所有物理接口列表
@@ -105,7 +105,7 @@ elif [ "$count" -gt 1 ]; then
         uci set network.lan.ipaddr=$CUSTOM_IP
         echo "custom router ip is $CUSTOM_IP" >> $LOGFILE
     else
-        uci set network.lan.ipaddr='10.0.0.10'
+        uci set network.lan.ipaddr='10.0.0.11'
         echo "default router ip is 10.0.0.1" >> $LOGFILE
     fi
 
